@@ -26,10 +26,29 @@ header {
   position: fixed;
   background-color: #fff;
   top: 0;
+  z-index: 1;
 }
 header .container {
     display: flex;
     justify-content: space-between;
+}
+.btn-menu-mobile,.nav-input,.mask-overlay,.nav-mobile {
+    display: none;
+}
+.btn-close {
+    width: 32px;
+    height: 32px;
+    color: #666; 
+    position: absolute;
+    right: 0;
+}
+.mask-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .head {
     background: url(./IMG/Swimming.png) no-repeat center center;
@@ -69,13 +88,15 @@ section {
 p {
     font-family: Arial, Helvetica, sans-serif;
   }
+
+/* banner */
 .banner {
     margin-top: 120px;
     width: 100%;
     background: #fff url(./IMG/Banner.png) no-repeat ;
     background-size: contain;
     height: 1025px;
-    /* background-position: center center; */
+    background-position: center top;
 }
 .banner .container {
     height: 100%;
@@ -130,17 +151,19 @@ p {
     font-size: 22px;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 .body-title p {
-    width: 191px;
+    width: calc(100% - 26px);
 }
 .item-arrow {
-    margin-left: 20px;
     width: 26px;
     background-image: url(./IMG/item_Arrow.png);
     background-repeat: no-repeat;
     background-position: bottom;
 }
+
+/* banner */
 
 body section .container {
     display: flex;
@@ -258,12 +281,32 @@ body section:nth-child(6) .div-left{
     height: 495px;
     color: #fff;
     box-sizing: border-box;
+    padding: 80px 72px;
+}
+
+body section:nth-child(6) .div-left .item-ellipse {
+    height: 26px;
+    display: flex;
+    margin-top: 30px;
+}
+
+.our-events {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+body section:nth-child(6) .div-left .item-ellipse p {
+    line-height: 26px;
+    padding-left: 20px;
+    font-size: 22px;
 }
 
 body section:nth-child(6) .div-right{
     width: 48%;
-    background:  url(./IMG/section6_right.png) no-repeat ; 
+    background: url(./IMG/section6_right.png) no-repeat ; 
     background-size: cover;
+    
 }
 /* section 6 */
 
@@ -271,38 +314,166 @@ body section:nth-child(6) .div-right{
 .list-info-person {
     width: 22%;
     height: 510px;
-    /* position: relative;
-    z-index: 2; */
+    position: relative;
     
 }
 .list-info-person .ava {
     width: 182px;
     height: 182px;
-    background: url(./IMG/ava_1.png);
+    
     margin: 0 auto;
-    /* position: absolute; 
+    position: absolute; 
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1; */
     border-radius: 50%;
     margin-bottom: -91px;
-    z-index: 1;
+    
 }
+
+.list-info-person .ava.mot {
+    background: url(./IMG/ava_1.png);
+}
+.list-info-person .ava.hai {
+    background: url(./IMG/ava_2.png);
+}
+.list-info-person .ava.ba {
+    background: url(./IMG/ava_3.png);
+}
+.list-info-person .ava.bon {
+    background: url(./IMG/ava_4.png);
+}
+
 .list-info-person .content {
     height: 419px;
     width: 100%;
     background:  url(./IMG/section7_content.png);
-    /* position: absolute;   
-    bottom: 0; */
-    z-index: 2;
-    
+    position: absolute;   
+    bottom: 0; 
+    padding: 121px 40px 30px 35px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+.list-info-person .content p {
+    font-size: 24px;
+    color: #515151;
+    display: block;
+    line-height: 30px;
+}
+
+.list-info-person .content .name {
+    color: #ff6300;
+    line-height: 35px;
+    font-size: 30px;
+    display: block;
+}
+
 /* section 7 */
 
+/* footer */
 
-@media screen and (min-width: 1024px) {
-    
+footer section .div-left {
+    background-color: #0080ca;
+    width: 48%;
+    height: 495px;
+}
+
+footer section:nth-child(1) .div-left{
+    padding: 80px 70px;
+    box-sizing: border-box;
+}
+
+footer section .div-right {
+    width: 48%;
+    height: 495px;
+    background: url(./IMG/footer_right.png);
+}
+
+#phone-text {
+    font-size: 51px;
+}
+
+footer section .div-left p:nth-child(even) {
+    font-size: 23px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+footer section .div-left p:nth-child(odd) {
+    font-size: 51px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.icon-social {
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    background-color: #fff;
+    margin-right: 10px;
+}
+
+.social-media svg {  
+    height: 100%;
+    width: 100%;
+}
+
+.phone-number {
+    display: flex;
+}
+.phone {
+    font-size: 51px;
+}
+
+
+.icon-social.phone {
+    padding: 5px 15px;   
+}
+.icon-social.phone svg {
+    width: 20px;
+    height: 40px;
+}
+.icon-social svg path {
+    fill: #0080ca;
+}
+
+.social-media {
+    display: flex;
+}
+
+.text-final {
+    text-align: center;
+    font-size: 23px;
+}
+
+/* footer */
+
+
+@media screen and (min-width: 760px) and (max-width: 1024px) {
+    header .container {
+        height: 100%;
+    }
+    .head,.menu {
+        display: none;
+    }
+    .btn-menu-mobile {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 40px 0;
+    }
+    .nav-mobile-input:checked ~ .mask-overlay {
+        display: block;
+    }
+    .nav-mobile-input:checked ~ .nav-mobile {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 1000px){
