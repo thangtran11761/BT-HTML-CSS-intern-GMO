@@ -32,23 +32,18 @@ header .container {
     display: flex;
     justify-content: space-between;
 }
-.btn-menu-mobile,.nav-input,.mask-overlay,.nav-mobile {
+.btn-menu-mobile,.nav-input,.mask-overlay{
     display: none;
 }
-.btn-close {
-    width: 32px;
-    height: 32px;
-    color: #666; 
-    position: absolute;
-    right: 0;
-}
-.mask-overlay {
+.nav-mobile {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    width: 320px;
+    max-width: 320px;
+    background-color: #FFF;
+    transform: translateX(-100%);
 }
 .head {
     background: url(./IMG/Swimming.png) no-repeat center center;
@@ -165,10 +160,6 @@ p {
 
 /* banner */
 
-body section .container {
-    display: flex;
-    justify-content: space-between;
-}
 body section:nth-child(3) .div-left {
     width: 48%;
     height: 495px;
@@ -213,11 +204,7 @@ body section:nth-child(4) .div-right  {
 .div-right {
     height: 495px;
 }
-body section:nth-child(4) .container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
+
 body section:nth-child(4) .div-left {
     width: 48%;
     height: 495px;
@@ -453,9 +440,23 @@ footer section .div-left p:nth-child(odd) {
 }
 
 /* footer */
+@media screen and (min-width: 1025px)  { 
 
+    body section .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    body section:nth-child(4) .container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
 
 @media screen and (min-width: 760px) and (max-width: 1024px) {
+    header {
+        height: 80px;
+    }
     header .container {
         height: 100%;
     }
@@ -466,19 +467,205 @@ footer section .div-left p:nth-child(odd) {
         display: block;
         width: 40px;
         height: 40px;
-        margin: 40px 0;
+        margin: 20px 0;
     }
-    .nav-mobile-input:checked ~ .mask-overlay {
+    #nav-mobile-input {
+        display: none;
+    }
+    .nav-input:checked ~ .mask-overlay {
         display: block;
     }
-    .nav-mobile-input:checked ~ .nav-mobile {
+    .nav-input:checked ~ .nav-mobile {
+        transform: translateX(0);
+    }
+    .btn-close {
+        width: 32px;
+        height: 32px;
+        color: #666; 
+        position: absolute;
+        right: 0;
+        display: none;
+    }    
+    .mask-overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+    .nav-mobile-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
         display: block;
+    }
+    .nav-mobile p {
+        width: 100%;
+        line-height: 50px;
+        text-align: center;
+        font-size: 30px;
+    }
+    .nav-mobile p:hover {
+        color: #fff;  
+        background: url(./IMG/header.png);
+    }
+    .banner {
+        margin-top: 80px;
+    }
+    .list-item {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .item {
+        width: 48%;
+        margin-top: 10px;
+    }
+    body section .container .div-left {
+        width: 100%;
+    }
+    body section .container .div-right {
+        width: 100%;
+    }
+    body section:nth-child(4) .div-left {
+        width: 100%;
+    }
+    body section:nth-child(4) .div-right {
+        width: 100%;
+    }
+    body section:nth-child(5) .div-right {
+        display: none;
+    }
+    body section:nth-child(7) .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .list-info-person .content {
+        padding: 120px 10px 10px 10px;
+    }
+    .list-info-person .content p {
+        font-size: 14px;
     }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 759px) and (min-width: 320px){
     
-    
+    header {
+        height: 80px;
+    }
+    header .container {
+        height: 100%;
+    }
+    .container {
+        width: 100%;
+    }
+    .head,.menu {
+        display: none;
+    }
+    .btn-menu-mobile {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 20px 0;
+    }
+    #nav-mobile-input {
+        display: none;
+    }
+    .nav-input:checked ~ .mask-overlay {
+        display: block;
+    }
+    .nav-input:checked ~ .nav-mobile {
+        transform: translateX(0);
+    }
+    .btn-close {
+        width: 32px;
+        height: 32px;
+        color: #666; 
+        position: absolute;
+        right: 0;
+        display: none;
+    }    
+    .mask-overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+    .nav-mobile-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+    .nav-mobile p {
+        width: 100%;
+        line-height: 50px;
+        text-align: center;
+        font-size: 30px;
+    }
+    .nav-mobile p:hover {
+        color: #fff;  
+        background: url(./IMG/header.png);
+    }
+    .banner {
+        margin-top: 80px;
+    }
+    .list-item {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .item {
+        height: 200px;
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+    }
+    .title {
+        width: 100%;
+        font-size: 46px;
+        font-weight: 600;
+    }
+    body section .container .div-left {
+        padding-left: 10px;
+    }
+    body section .container .div-left {
+        width: 100%;
+    }
+    body section .container .div-right {
+        width: 100%;
+    }
+    body section:nth-child(4) .div-left {
+        width: 100%;
+    }
+    body section:nth-child(4) .div-right {
+        width: 100%;
+    }
+    body section:nth-child(5) .div-right {
+        display: none;
+    }
+    body section:nth-child(7) .container {
+
+    }
+    .list-info-person {
+        width: 100%;
+        height: 391px;
+        margin-bottom: 10px;
+    }
+    .list-info-person .content {
+        padding: 120px 10px 10px 10px;
+        height: 300px;
+    }
+    .list-info-person .content p {
+        font-size: 14px;
+    }
     
 }
 
